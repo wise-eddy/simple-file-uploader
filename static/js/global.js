@@ -34,8 +34,11 @@
             var current_file = {name:all_files[current_file_id].name,type:all_files[current_file_id].type,contents:evt.target.result};
             d3.xhr('/upload').post(JSON.stringify(current_file), function(error,XHR) {
                if (XHR.status === 200) {
-                    d3.select(".file." + "f"+current_file_id + " .progress").html("Uploaded"); 
-                } else {
+                  d3.select("body").style("background","cornflowerblue")
+                   d3.select(".file." + "f"+current_file_id + " .progress").html("Uploaded the file!");
+           
+                   }
+                 else {
                     d3.select(".file." + "f"+current_file_id + " .progress").html("Failed");
                 }
                 all_files[current_file_id] = 1;
